@@ -24,5 +24,5 @@ Minecraft 1.21 ~ 1.21.3 (Fabric)
 
 ## License
 
-Original SecureSeed code(BLAKE2b hashing, Globals) are licensed under the MIT license.
+Original SecureSeed files(BLAKE2b hashing, Globals) are licensed under the MIT license.
 The rest of the SecureSeed-Reborn is licensed under the GNU General Public License v3.
