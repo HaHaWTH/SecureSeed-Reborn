@@ -10,6 +10,9 @@ There is no link between the generation of different features. For example, a li
 
 The terrain and biomes stays the same. But all the ores, structures, villages, strongholds, spawners, clay patches, geodes, lava pools, slime chunks — would appear in different places from the original seed. Because they are generated with all the fancy technology from the Secure Seed mod. Meaning there is no way that players can abuse the seed to find ores or structures.
 
+## Supported versions
+
+Minecraft 1.21 ~ 1.21.3 (Fabric)
 
 ## Credits
 
