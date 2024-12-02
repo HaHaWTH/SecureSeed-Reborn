@@ -1,0 +1,26 @@
+{
+	"required": true,
+	"package": "io.wdsj.secureseed.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+        "WorldOptionsMixin",
+	    "SlimeMixin",
+		"ServerLevelMixin",
+		"ServerChunkCacheMixin",
+		"GeodeFeatureMixin",
+		"ChunkStepMixin",
+		"ChunkGeneratorStructureStateMixin",
+		"ChunkGeneratorMixin",
+		"ChunkAccessMixin",
+		"SeedCommandMixin",
+		"DedicatedServerPropertiesMixin",
+		"structure.JigsawPlacementMixin",
+		"structure.RandomSpreadStructurePlacementMixin",
+		"structure.StructureGenerationContextMixin",
+		"structure.StructurePlacementMixin",
+		"invokers.StructurePlacementInvoker"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

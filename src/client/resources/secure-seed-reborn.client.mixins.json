@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "io.wdsj.secureseed.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"CreateWorldScreenMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

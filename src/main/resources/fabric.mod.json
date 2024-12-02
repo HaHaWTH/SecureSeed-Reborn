@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "secure-seed-reborn",
+	"version": "${version}",
+	"name": "SecureSeed Reborn",
+	"description": "State-of-the-art cryptography to protect your world seed against seed cracking tools.",
+	"authors": [
+		"HaHaWTH",
+		"EarthComputer"
+	],
+	"contact": {
+		"sources": "https://github.com/HaHaWTH/SecureSeed-Reborn"
+	},
+	"license": "GPL-3.0",
+	"icon": "assets/secure-seed-reborn/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.wdsj.secureseed.SecureSeedReborn"
+		]
+	},
+	"mixins": [
+		"secure-seed-reborn.mixins.json",
+		{
+			"config": "secure-seed-reborn.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "~1.21",
+		"java": ">=21"
+	},
+	"accessWidener": "secure_seed_reborn.accesswidener",
+	"suggests": {
+		"another-mod": "*"
+	}
+}

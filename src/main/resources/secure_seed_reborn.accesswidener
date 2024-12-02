@@ -1,0 +1,5 @@
+accessWidener v1 named
+
+accessible field net/minecraft/world/level/levelgen/WorldOptions legacyCustomOptions Ljava/util/Optional;
+accessible method net/minecraft/world/level/levelgen/WorldOptions <init> (JZZLjava/util/Optional;)V
+accessible method net/minecraft/server/dedicated/Settings get (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
