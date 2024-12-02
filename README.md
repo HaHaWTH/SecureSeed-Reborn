@@ -10,11 +10,19 @@ There is no link between the generation of different features. For example, a li
 
 The terrain and biomes stays the same. But all the ores, structures, villages, strongholds, spawners, clay patches, geodes, lava pools, slime chunks — would appear in different places from the original seed. Because they are generated with all the fancy technology from the Secure Seed mod. Meaning there is no way that players can abuse the seed to find ores or structures.
 
+If you installed the mod with an existed save, only new chunks will be generated with SecureSeed.
+
 ## Supported versions
 
 Minecraft 1.21 ~ 1.21.3 (Fabric)
 
 ## Credits
 
-- [SecureSeed](https://github.com/Earthcomputer/SecureSeed)
-- [Matter](https://github.com/plasmoapp/matter)
+- [SecureSeed (Original Project)](https://github.com/Earthcomputer/SecureSeed)
+- [Matter (Porting SecuredSeed to Paper)](https://github.com/plasmoapp/matter)
+- [Leaf (Porting to Paper 1.21+)](https://github.com/Winds-Studio/Leaf)
+
+## License
+
+Original SecureSeed code(BLAKE2b hashing, Globals) are licensed under the MIT license.
+The rest of the SecureSeed-Reborn is licensed under the GNU General Public License v3.
