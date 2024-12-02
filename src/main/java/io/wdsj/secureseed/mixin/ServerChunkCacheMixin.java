@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class ServerChunkCacheMixin {
 
     @Shadow @Final
-    ServerLevel level;
+    private ServerLevel level;
 
     @Inject(method = "getGenerator", at = @At("HEAD"))
     private void secureSeed_setupGlobals(CallbackInfoReturnable<ChunkGenerator> cir) {
