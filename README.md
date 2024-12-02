@@ -14,7 +14,7 @@ If you installed the mod with an existed save, only new chunks will be generated
 
 ## Supported versions
 
-Minecraft 1.21 ~ 1.21.3 (Fabric)
+Minecraft 1.21 ~ 1.21.4 (Fabric)
 
 ## Credits
 

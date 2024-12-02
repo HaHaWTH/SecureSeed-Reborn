@@ -14,16 +14,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(ChunkGenerator.class)
 public abstract class ChunkGeneratorMixin {
-    /*
-    @Redirect(
-            method = "applyBiomeDecoration",
-            at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/levelgen/WorldgenRandom;<init>(Lnet/minecraft/util/RandomSource;)V")
-    )
-    public void replaceRandomDecoration(WorldgenRandom instance, RandomSource randomSource, @Local BlockPos blockPos) {
-        //instance = new WorldgenCryptoRandom(blockPos.getX(), blockPos.getZ(), Globals.Salt.UNDEFINED, 0);
-    }
-     */
 
     @ModifyVariable(
             method = "applyBiomeDecoration",
@@ -32,16 +22,6 @@ public abstract class ChunkGeneratorMixin {
     private WorldgenRandom replaceRandomDecoration(WorldgenRandom value, @Local BlockPos blockPos) {
         return new WorldgenCryptoRandom(blockPos.getX(), blockPos.getZ(), Globals.Salt.UNDEFINED, 0);
     }
-    /*
-    @Redirect(method = "method_41041",
-            at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/levelgen/WorldgenRandom;<init>(Lnet/minecraft/util/RandomSource;)V"
-            )
-    )
-    public void replaceRandomStructures(WorldgenRandom instance, RandomSource randomSource, @Local(argsOnly = true) ChunkPos chunkPos) {
-       // instance = new WorldgenCryptoRandom(chunkPos.x, chunkPos.z, Globals.Salt.GENERATE_FEATURE, 0);
-    }
-     */
 
     @ModifyVariable(
             method = "method_41041",

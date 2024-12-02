@@ -3,8 +3,8 @@ package io.wdsj.secureseed.mixin;
 import io.wdsj.secureseed.interfaces.IChunkAccessSlimeChunk;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.level.LevelAccessor;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,7 +18,7 @@ public abstract class SlimeMixin implements IChunkAccessSlimeChunk {
             method = "checkSlimeSpawnRules",
             at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/levelgen/WorldgenRandom;seedSlimeChunk(IIJJ)Lnet/minecraft/util/RandomSource;"),
             cancellable = true)
-    private static void check(EntityType<Slime> entityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource, CallbackInfoReturnable<Boolean> cir) {
+    private static void check(EntityType<Slime> entityType, LevelAccessor levelAccessor, EntitySpawnReason entitySpawnReason, BlockPos blockPos, RandomSource randomSource, CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(((IChunkAccessSlimeChunk)(Object)levelAccessor.getChunk(blockPos.getX() >> 4, blockPos.getZ() >> 4)).secureSeed$isSlimeChunk());
     }
 }

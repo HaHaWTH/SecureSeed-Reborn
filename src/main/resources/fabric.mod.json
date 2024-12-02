@@ -28,7 +28,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.16.0",
-		"minecraft": "~1.21",
+		"minecraft": "~1.21.4-",
 		"java": ">=21"
 	},
 	"accessWidener": "secure_seed_reborn.accesswidener",
