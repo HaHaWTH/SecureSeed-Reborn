@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(Slime.class)
-public abstract class SlimeMixin implements IChunkAccessSlimeChunk {
+public abstract class SlimeMixin {
     @ModifyVariable(
             method = "checkSlimeSpawnRules",
             at = @At(value = "STORE", target = "Lnet/minecraft/world/level/levelgen/WorldgenRandom;seedSlimeChunk(IIJJ)Lnet/minecraft/util/RandomSource;")
