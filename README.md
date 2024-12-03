@@ -16,6 +16,10 @@ If you installed the mod with an existed save, only new chunks will be generated
 
 Minecraft 1.21 ~ 1.21.4 (Fabric)
 
+## Download
+
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/secureseed-reborn)
+
 ## Credits
 
 - [SecureSeed (Original Project)](https://github.com/Earthcomputer/SecureSeed)
