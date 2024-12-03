@@ -11,7 +11,7 @@ import net.minecraft.server.commands.SeedCommand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
-@Mixin(SeedCommand.class)
+@Mixin(value = SeedCommand.class, priority = 999)
 public abstract class SeedCommandMixin {
     /**
      * @author HaHaWTH
@@ -20,6 +20,7 @@ public abstract class SeedCommandMixin {
     @Overwrite
     @SuppressWarnings("unchecked")
     public static void register(CommandDispatcher<CommandSourceStack> commandDispatcher, boolean bl) {
+        //noinspection rawtypes
         commandDispatcher.register((LiteralArgumentBuilder)((LiteralArgumentBuilder) Commands.literal("seed").requires((commandSourceStack) -> !bl || commandSourceStack.hasPermission(2))).executes((commandContext) -> {
             long l = ((CommandSourceStack)commandContext.getSource()).getLevel().getSeed();
             Component component = ComponentUtils.copyOnClickText(String.valueOf(l));
