@@ -4,7 +4,7 @@ State-of-the-art cryptography to protect your world seed against seed cracking t
 
 ## Description
 
-This mod is a partial port of the SecureSeed mod originally written for Minecraft 1.16, it changes vanilla 64-bit seed to a 1024-bit seed, making it impossible to crack the seed. Not only that, there are a lot of things changed related to how random generation works.
+This mod is a partial port of the [SecureSeed](https://github.com/Earthcomputer/SecureSeed) mod originally written for Minecraft 1.16, it changes vanilla 64-bit seed to a 1024-bit seed, making it impossible to crack the seed. Not only that, there are a lot of things changed related to how random generation works.
 
 There is no link between the generation of different features. For example, a link between diamonds and clay.
 
@@ -28,5 +28,5 @@ Minecraft 1.21 ~ 1.21.4 (Fabric)
 
 ## License
 
-Original SecureSeed files(BLAKE2b hashing, Globals) are licensed under the MIT license.
+Original SecureSeed files(BLAKE2b hashing, Globals etc.) are licensed under the MIT license.
 The rest of the SecureSeed-Reborn is licensed under the GNU General Public License v3.
