@@ -19,14 +19,14 @@ import java.util.OptionalLong;
 @Mixin(WorldOptions.class)
 public abstract class WorldOptionsMixin implements IWorldOptionsFeatureSeed {
     @Unique
-    private static Gson gson = new Gson();
+    private static Gson secureSeed$gson = new Gson();
 
     @Shadow
     public static final MapCodec<WorldOptions> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(
                             Codec.LONG.fieldOf("seed").stable().forGetter(WorldOptions::seed),
-                            Codec.STRING.fieldOf("feature_seed").orElse(gson.toJson(Globals.createRandomWorldSeed())).stable().forGetter(worldOptions -> {
-                                return ((IWorldOptionsFeatureSeed)(Object)worldOptions).featureSeedSerialize();
+                            Codec.STRING.fieldOf("feature_seed").orElse(secureSeed$gson.toJson(Globals.createRandomWorldSeed())).stable().forGetter(worldOptions -> {
+                                return ((IWorldOptionsFeatureSeed) worldOptions).secureSeed$featureSeedSerialize();
                             }),
                             Codec.BOOL.fieldOf("generate_features").orElse(true).stable().forGetter(WorldOptions::generateStructures),
                             Codec.BOOL.fieldOf("bonus_chest").orElse(false).stable().forGetter(WorldOptions::generateBonusChest),
@@ -34,7 +34,7 @@ public abstract class WorldOptionsMixin implements IWorldOptionsFeatureSeed {
                     )
                     .apply(instance, instance.stable((seed, featureSeed, generateStructures, generateBonusChest, legacyCustomOptions) -> {
                         var worldOptions = new WorldOptions(seed, generateStructures, generateBonusChest, legacyCustomOptions);
-                        ((IWorldOptionsFeatureSeed)(Object)worldOptions).setFeatureSeed(gson.fromJson(featureSeed, long[].class));
+                        ((IWorldOptionsFeatureSeed) worldOptions).secureSeed$setFeatureSeed(secureSeed$gson.fromJson(featureSeed, long[].class));
                         return worldOptions;
                     }))
     );
@@ -46,7 +46,7 @@ public abstract class WorldOptionsMixin implements IWorldOptionsFeatureSeed {
     )
     private static void setup(CallbackInfoReturnable<WorldOptions> cir) {
         var worldOptions = cir.getReturnValue();
-        ((IWorldOptionsFeatureSeed)(Object)worldOptions).setFeatureSeed(Globals.createRandomWorldSeed());
+        ((IWorldOptionsFeatureSeed) worldOptions).secureSeed$setFeatureSeed(Globals.createRandomWorldSeed());
     }
 
     @Inject(
@@ -55,7 +55,7 @@ public abstract class WorldOptionsMixin implements IWorldOptionsFeatureSeed {
     )
     private void setupBonusChest(boolean bl, CallbackInfoReturnable<WorldOptions> cir) {
         var worldOptions2 = cir.getReturnValue();
-        ((IWorldOptionsFeatureSeed)(Object)worldOptions2).setFeatureSeed(this.featureSeed);
+        ((IWorldOptionsFeatureSeed) worldOptions2).secureSeed$setFeatureSeed(this.secureSeed$featureSeed);
     }
 
     @Inject(
@@ -64,7 +64,7 @@ public abstract class WorldOptionsMixin implements IWorldOptionsFeatureSeed {
     )
     private void setupStructures(boolean bl, CallbackInfoReturnable<WorldOptions> cir) {
         var worldOptions2 = cir.getReturnValue();
-        ((IWorldOptionsFeatureSeed) worldOptions2).setFeatureSeed(this.featureSeed);
+        ((IWorldOptionsFeatureSeed) worldOptions2).secureSeed$setFeatureSeed(this.secureSeed$featureSeed);
     }
 
     @Inject(
@@ -73,26 +73,26 @@ public abstract class WorldOptionsMixin implements IWorldOptionsFeatureSeed {
     )
     private void setupSeed(OptionalLong optionalLong, CallbackInfoReturnable<WorldOptions> cir) {
         var worldOptions2 = cir.getReturnValue();
-        ((IWorldOptionsFeatureSeed) worldOptions2).setFeatureSeed(Globals.createRandomWorldSeed());
+        ((IWorldOptionsFeatureSeed) worldOptions2).secureSeed$setFeatureSeed(Globals.createRandomWorldSeed());
     }
 
     @Unique
-    private long[] featureSeed = Globals.createRandomWorldSeed();
+    private long[] secureSeed$featureSeed = Globals.createRandomWorldSeed();
     @Unique
     @Override
-    public long[] featureSeed() {
-        return this.featureSeed;
-    }
-
-    @Unique
-    @Override
-    public void setFeatureSeed(long[] seed) {
-        this.featureSeed = seed;
+    public long[] secureSeed$featureSeed() {
+        return this.secureSeed$featureSeed;
     }
 
     @Unique
     @Override
-    public String featureSeedSerialize() {
-        return gson.toJson(this.featureSeed);
+    public void secureSeed$setFeatureSeed(long[] seed) {
+        this.secureSeed$featureSeed = seed;
+    }
+
+    @Unique
+    @Override
+    public String secureSeed$featureSeedSerialize() {
+        return secureSeed$gson.toJson(this.secureSeed$featureSeed);
     }
 }

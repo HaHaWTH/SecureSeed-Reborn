@@ -24,7 +24,7 @@ public abstract class SeedCommandMixin {
         commandDispatcher.register((LiteralArgumentBuilder)((LiteralArgumentBuilder) Commands.literal("seed").requires((commandSourceStack) -> !bl || commandSourceStack.hasPermission(2))).executes((commandContext) -> {
             long l = ((CommandSourceStack)commandContext.getSource()).getLevel().getSeed();
             Component component = ComponentUtils.copyOnClickText(String.valueOf(l));
-            ((CommandSourceStack)commandContext.getSource()).sendSuccess(() -> Component.translatable("commands.seed.success", new Object[]{component}), false);
+            ((CommandSourceStack)commandContext.getSource()).sendSuccess(() -> Component.translatable("commands.seed.success", component), false);
             Globals.setupGlobals(((CommandSourceStack)commandContext.getSource()).getLevel());
             String seedStr = Globals.seedToString(Globals.worldSeed);
             Component featureSeedComponent = ComponentUtils.copyOnClickText(seedStr);

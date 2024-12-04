@@ -15,7 +15,7 @@ public abstract class StructurePlacementMixin {
             method = "probabilityReducer",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/WorldgenRandom;setLargeFeatureWithSalt(JIII)V")
     )
-    private static void replaceRandom(WorldgenRandom instance, long l, int i, int j, int k) {
+    private static void swallowMethodCall(WorldgenRandom instance, long l, int i, int j, int k) {
         // no-ops
     }
 

@@ -37,7 +37,7 @@ public class Globals {
     }
 
     public static void setupGlobals(ServerLevel world) {
-        long[] seed = ((IWorldOptionsFeatureSeed) world.getServer().getWorldData().worldGenOptions()).featureSeed();
+        long[] seed = ((IWorldOptionsFeatureSeed) world.getServer().getWorldData().worldGenOptions()).secureSeed$featureSeed();
         System.arraycopy(seed, 0, worldSeed, 0, WORLD_SEED_LONGS);
         int worldIndex = Iterables.indexOf(world.getServer().levelKeys(), it -> it == world.dimension());
         if (worldIndex == -1)
