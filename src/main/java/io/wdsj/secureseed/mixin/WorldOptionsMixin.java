@@ -64,7 +64,7 @@ public abstract class WorldOptionsMixin implements IWorldOptionsFeatureSeed {
     )
     private void setupStructures(boolean bl, CallbackInfoReturnable<WorldOptions> cir) {
         var worldOptions2 = cir.getReturnValue();
-        ((IWorldOptionsFeatureSeed)(Object)worldOptions2).setFeatureSeed(this.featureSeed);
+        ((IWorldOptionsFeatureSeed) worldOptions2).setFeatureSeed(this.featureSeed);
     }
 
     @Inject(
@@ -73,7 +73,7 @@ public abstract class WorldOptionsMixin implements IWorldOptionsFeatureSeed {
     )
     private void setupSeed(OptionalLong optionalLong, CallbackInfoReturnable<WorldOptions> cir) {
         var worldOptions2 = cir.getReturnValue();
-        ((IWorldOptionsFeatureSeed)(Object)worldOptions2).setFeatureSeed(Globals.createRandomWorldSeed());
+        ((IWorldOptionsFeatureSeed) worldOptions2).setFeatureSeed(Globals.createRandomWorldSeed());
     }
 
     @Unique

@@ -26,6 +26,6 @@ public abstract class DedicatedServerPropertiesMixin {
         String featureSeedStr = ((DedicatedServerProperties)(Object)this).get("feature-level-seed", "");
         long[] featureSeed = Globals.parseSeed(featureSeedStr)
                 .orElse(Globals.createRandomWorldSeed());
-        ((IWorldOptionsFeatureSeed)(Object)worldOptions).setFeatureSeed(featureSeed);
+        ((IWorldOptionsFeatureSeed) worldOptions).setFeatureSeed(featureSeed);
     }
 }

@@ -18,6 +18,6 @@ public abstract class SlimeMixin {
             at = @At(value = "STORE", target = "Lnet/minecraft/world/level/levelgen/WorldgenRandom;seedSlimeChunk(IIJJ)Lnet/minecraft/util/RandomSource;")
     )
     private static boolean replace(boolean value, EntityType<Slime> entityType, LevelAccessor levelAccessor, EntitySpawnReason entitySpawnReason, BlockPos blockPos, RandomSource randomSource) {
-        return ((IChunkAccessSlimeChunk)(Object)levelAccessor.getChunk(blockPos.getX() >> 4, blockPos.getZ() >> 4)).secureSeed$isSlimeChunk();
+        return ((IChunkAccessSlimeChunk) levelAccessor.getChunk(blockPos.getX() >> 4, blockPos.getZ() >> 4)).secureSeed$isSlimeChunk();
     }
 }

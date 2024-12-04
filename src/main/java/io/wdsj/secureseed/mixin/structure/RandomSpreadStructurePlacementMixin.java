@@ -31,6 +31,6 @@ public abstract class RandomSpreadStructurePlacementMixin {
     private WorldgenRandom replaceRandom(WorldgenRandom instance, long l, int i, int j) {
         int k = Math.floorDiv(i, this.spacing);
         int m = Math.floorDiv(j, this.spacing);
-        return new WorldgenCryptoRandom(k, m, Globals.Salt.POTENTIONAL_FEATURE, ((StructurePlacementInvoker)this).invokeSalt());
+        return new WorldgenCryptoRandom(k, m, Globals.Salt.POTENTIONAL_FEATURE, ((StructurePlacementInvoker) this).invokeSalt());
     }
 }
