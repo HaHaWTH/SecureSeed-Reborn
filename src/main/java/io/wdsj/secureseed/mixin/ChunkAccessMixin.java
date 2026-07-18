@@ -20,7 +20,7 @@ public abstract class ChunkAccessMixin implements IChunkAccessSlimeChunk {
     public boolean secureSeed$isSlimeChunk() {
         if (!hasComputedSlimeChunk) {
             hasComputedSlimeChunk = true;
-            slimeChunk = WorldgenCryptoRandom.seedSlimeChunk(chunkPos.x, chunkPos.z).nextInt(10) == 0;
+            slimeChunk = WorldgenCryptoRandom.seedSlimeChunk(chunkPos.x(), chunkPos.z()).nextInt(10) == 0;
         }
 
         return slimeChunk;

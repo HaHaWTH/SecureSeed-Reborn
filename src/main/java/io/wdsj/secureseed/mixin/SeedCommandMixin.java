@@ -8,6 +8,7 @@ import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.server.commands.SeedCommand;
+import net.minecraft.server.permissions.Permissions;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -21,7 +22,7 @@ public abstract class SeedCommandMixin {
     @SuppressWarnings("unchecked")
     public static void register(CommandDispatcher<CommandSourceStack> commandDispatcher, boolean bl) {
         //noinspection rawtypes
-        commandDispatcher.register((LiteralArgumentBuilder)((LiteralArgumentBuilder) Commands.literal("seed").requires((commandSourceStack) -> !bl || commandSourceStack.hasPermission(2))).executes((commandContext) -> {
+        commandDispatcher.register((LiteralArgumentBuilder)((LiteralArgumentBuilder) Commands.literal("seed").requires((commandSourceStack) -> !bl || commandSourceStack.permissions().hasPermission(Permissions.COMMANDS_GAMEMASTER))).executes((commandContext) -> {
             long l = ((CommandSourceStack)commandContext.getSource()).getLevel().getSeed();
             Component component = ComponentUtils.copyOnClickText(String.valueOf(l));
             ((CommandSourceStack)commandContext.getSource()).sendSuccess(() -> Component.translatable("commands.seed.success", component), false);

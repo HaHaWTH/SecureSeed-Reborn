@@ -17,6 +17,6 @@ public abstract class StructureGenerationContextMixin {
             , at = @At("HEAD"),
             cancellable = true)
     private static void replaceRandom(long l, ChunkPos chunkPos, CallbackInfoReturnable<WorldgenRandom> cir) {
-        cir.setReturnValue(new WorldgenCryptoRandom(chunkPos.x, chunkPos.z, Globals.Salt.GENERATE_FEATURE, l));
+        cir.setReturnValue(new WorldgenCryptoRandom(chunkPos.x(), chunkPos.z(), Globals.Salt.GENERATE_FEATURE, l));
     }
 }

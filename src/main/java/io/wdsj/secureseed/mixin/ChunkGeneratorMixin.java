@@ -24,14 +24,14 @@ public abstract class ChunkGeneratorMixin {
     }
 
     @ModifyVariable(
-            method = "method_41041",
+            method = "lambda$createStructures$0",
             at = @At(value = "STORE", ordinal = 0, target = "Lnet/minecraft/world/level/levelgen/WorldgenRandom;<init>(Lnet/minecraft/util/RandomSource;)V")
     )
     private WorldgenRandom replaceRandomStructures(WorldgenRandom value, @Local ChunkPos chunkPos) {
-        return new WorldgenCryptoRandom(chunkPos.x, chunkPos.z, Globals.Salt.GENERATE_FEATURE, 0);
+        return new WorldgenCryptoRandom(chunkPos.x(), chunkPos.z(), Globals.Salt.GENERATE_FEATURE, 0);
     }
 
-    @Redirect(method = "method_41041",
+    @Redirect(method = "lambda$createStructures$0",
             at = @At(value = "INVOKE",
                     target = "Lnet/minecraft/world/level/levelgen/WorldgenRandom;setLargeFeatureSeed(JII)V")
     )
